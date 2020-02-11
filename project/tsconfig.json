@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "noLib": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "api": ["api/"],
+      "models": ["model/"],
+      "components": ["components/"]
+    }
+  },
+  "compileOnSave": false,
+  "include": ["./src/**/*"]
+}
