@@ -13,7 +13,8 @@
     "paths": {
       "api": ["api/"],
       "models": ["model/"],
-      "components": ["components/"]
+      "components": ["components/"],
+      "img": ["img/"]
     }
   },
   "compileOnSave": false,
