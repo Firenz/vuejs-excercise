@@ -12,11 +12,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts", ".vue"],
     alias: {
-      vue: "vue/dist/vue.esm.js",
-      api: path.resolve(__dirname, "./src/api"),
-      model: path.resolve(__dirname, "./src/model"),
-      components: path.resolve(__dirname, "./src/components"),
-      img: path.resolve(__dirname, "./src/img")
+      vue: "vue/dist/vue.esm.js"
     }
   },
   mode: "development",
@@ -100,6 +96,18 @@ module.exports = {
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 50000,
+            name: "./img/[hash].[name].[ext]",
+            esModule: false
+          }
+        }
       }
     ]
   },

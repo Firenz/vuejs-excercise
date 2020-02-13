@@ -9,13 +9,7 @@
     "noLib": false,
     "suppressImplicitAnyIndexErrors": true,
     "strict": true,
-    "baseUrl": "./src/",
-    "paths": {
-      "api": ["api/"],
-      "models": ["model/"],
-      "components": ["components/"],
-      "img": ["img/"]
-    }
+    "baseUrl": "./src/"
   },
   "compileOnSave": false,
   "include": ["./src/**/*"]

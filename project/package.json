@@ -1,11 +1,11 @@
 {
-  "name": "sample-vue-js",
+  "name": "github-searcher-vue",
   "version": "1.0.0",
-  "description": "Sample working with TypeScript and Webpack",
+  "description": "Basic GitHub organization searched made with Vue",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "start": "webpack-dev-server --open",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "typescript",
     "webpack"
   ],
-  "author": "Lemoncode",
+  "author": "Alicia Guardeño <alicia.guardenoalbertos@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Lemoncode/vuejs-by-sample/issues"
@@ -27,6 +27,7 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
+    "@types/node": "^13.7.1",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
     "fork-ts-checker-webpack-plugin": "^0.5.0",
