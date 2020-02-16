@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "vue": "^2.5.17",
-    "vue-debounce": "^2.3.0"
+    "vue-debounce": "^2.3.0",
+    "vuetify": "^1.5.22"
   }
 }

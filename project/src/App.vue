@@ -1,5 +1,7 @@
 <template>
-  <search-org-page />
+  <v-app>
+    <search-org-page />
+  </v-app>
 </template>
 
 <script lang="ts">
