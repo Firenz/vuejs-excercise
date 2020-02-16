@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { HeaderSection } from "../../common-components/header";
-import { FooterSection } from "../../common-components/footer";
+import { HeaderSection } from "../../layouts/header";
+import { FooterSection } from "../../layouts/footer";
 import { SearchBar } from "./searchBar";
 import { MemberTable } from "./memberTable";
 import { SearchOrhProps} from './searchOrgProps';

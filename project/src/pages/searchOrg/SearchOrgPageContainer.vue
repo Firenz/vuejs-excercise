@@ -17,7 +17,7 @@ export default Vue.extend({
   components: { SearchOrgPage },
   data: () => {
     return {
-      searchTerm: "",
+      searchTerm: "" as string,
       members: [] as Member[]
     };
   },
