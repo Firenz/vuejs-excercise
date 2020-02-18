@@ -1,7 +1,9 @@
 <template>
-  <tr>
-    <td :class="$style.column">
-      <img :src="member.avatar_url" :class="$style.image">
+  <tr :class="$style.row">
+    <td :class="$style.columnAvatar">
+      <v-avatar :tile="circle" :size="avatarSize" color="grey lighten-4">
+        <img :src="member.avatar_url" />
+      </v-avatar>
     </td>
     <td :class="$style.column">
       <span>{{member.id}}</span>
@@ -24,17 +26,28 @@ export default Vue.extend({
   name: "MemberRow",
   props: {
     member: {}
-  } as Props
+  } as Props,
+  data: () => {
+    return {
+      avatarSize: 75
+    };
+  }
 });
 </script>
 
 <style module>
-.image {
-  max-width: 10rem;
+.row {
+  padding-bottom: 1rem;
+}
+
+.columnAvatar {
+  width: 2rem;
+  padding: 1rem;
 }
 
 .column {
-  width: 33.33%;
+  font-size: 2rem;
   text-align: center;
+  padding: 1rem;
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <header-section/>
-    <main>
+  <div :class="$style.body">
+    <header-section />
+    <main :class="$style.main">
       <search-bar :search-term="searchTerm" :on-update-search-term="onUpdateSearchTerm" />
       <member-table :members="members" />
     </main>
-    <footer-section/>
+    <footer-section />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import { HeaderSection } from "../../layouts/header";
 import { FooterSection } from "../../layouts/footer";
 import { SearchBar } from "./searchBar";
 import { MemberTable } from "./memberTable";
-import { SearchOrhProps} from './searchOrgProps';
+import { SearchOrhProps } from "./searchOrgProps";
 
 export default Vue.extend({
   name: "SearchOrgPage",
@@ -29,5 +29,15 @@ export default Vue.extend({
 </script>
 
 <style module>
+.body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
 
+.main {
+  flex: 1 1 auto;
+}
 </style>

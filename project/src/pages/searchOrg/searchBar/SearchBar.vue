@@ -1,12 +1,18 @@
 <template>
-  <div>
-    <input
-      type="text"
-      placeholder="lemoncode"
-      :value="currentSearchTerm"
-      v-debounce="onUpdateSearchTerm"
-    />
-  </div>
+  <v-layout row justify-center :class="$style.searchBar">
+    <v-flex xs4>
+      <v-text-field
+        type="text"
+        placeholder="lemoncode"
+        :value="currentSearchTerm"
+        v-debounce="onUpdateSearchTerm"
+        label="Organization name"
+        aria-label="Organization search"
+        append-icon="search"
+
+      />
+    </v-flex>
+  </v-layout>
 </template>
 
 <script lang="ts">
@@ -27,5 +33,8 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style module>
+.searchBar {
+  margin-bottom: 2.2rem;
+}
 </style>
