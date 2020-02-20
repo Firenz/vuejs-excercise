@@ -1,23 +1,22 @@
 <template>
   <v-card :class="$style.cardTable">
     <v-card-text>
-      <v-layout row justify-center>
+      <v-layout row :class="$style.filterMembers">
         <v-card-title>
           <h1>Organization members</h1>
         </v-card-title>
         <v-spacer></v-spacer>
-        <v-flex xs3>
-          <v-text-field
-            v-model="filterTerm"
-            placeholder="Filter by username..."
-            label="Filter members"
-            aria-label="Username filter"
-            append-icon="filter_list"
-          />
-        </v-flex>
+        <v-text-field
+          v-model="filterTerm"
+          placeholder="Filter by id or username..."
+          label="Filter members"
+          aria-label="Username filter"
+          append-icon="filter_list"
+          :class="$style.filterSearch"
+        />
       </v-layout>
     </v-card-text>
-    <v-layout column align-center>
+    <v-layout :class="$style.tableLayout">
       <v-data-table
         :headers="headers"
         :items="members"
@@ -31,13 +30,18 @@
           <member-row :key="props.item.id" :member="props.item" />
         </template>
         <template slot="no-data">
-          <v-alert :value="true" color="error" icon="warning">Sorry, nothing to display here :(</v-alert>
+          <v-alert
+            :value="true"
+            color="error"
+            icon="warning"
+            :class="$style.alert"
+          >Sorry, nothing to display here :(</v-alert>
         </template>
       </v-data-table>
-      <div v-if="pages > 0" class="text-xs-center pt-2">
-        <v-pagination v-model="pagination.page" :length="pages"></v-pagination>
-      </div>
     </v-layout>
+    <div v-if="pages > 0" class="text-xs-center pt-2" :class="$style.pagination">
+      <v-pagination v-model="pagination.page" :length="pages"></v-pagination>
+    </div>
   </v-card>
 </template>
 
@@ -57,7 +61,7 @@ export default Vue.extend({
     return {
       filterTerm: "",
       pagination: {
-        rowsPerPage: 3,
+        rowsPerPage: 4,
         page: 1,
         totalVisible: 4
       },
@@ -73,30 +77,67 @@ export default Vue.extend({
     };
   },
   computed: {
-    filteredMembers() {
+    filteredMembers(): Member[] {
       return this.members.filter(member => {
         return (
           member.login.toLowerCase().indexOf(this.filterTerm.toLowerCase()) > -1
         );
       });
     },
-    pages() {
-      const rowsPerPage = this.pagination.rowsPerPage;
-      const members = this.members;
-      return rowsPerPage ? Math.ceil(members.length / rowsPerPage) : 0;
+    pages(): number {
+      return this.pagination.rowsPerPage
+        ? Math.ceil(this.filteredMembers.length / this.pagination.rowsPerPage)
+        : 0;
     }
   }
 });
 </script>
 
 <style module>
-.cardTable {
-  margin: 2rem;
-  height: 48rem;
+.filterSearch {
+  margin-right: 1rem;
+}
+
+main .cardTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem 1rem 3rem;
+  padding-bottom: 1rem;
+  max-width: 60rem;
+  width: 90%;
+  height: 45rem;
+}
+
+.cardTable .filterMembers {
+}
+
+.cardTable .tableLayout {
+  flex: 0;
+  width: 100%;
+  margin-bottom: auto;
 }
 
 .table {
   width: 80%;
-  margin-bottom: 0.5rem;
+  margin: 0 auto 0.5rem;
+}
+
+thead > tr {
+  background-color: #e9fdfb;
+}
+
+.alert {
+  text-align: center;
+  flex-direction: column;
+}
+
+.alert > * {
+  padding-bottom: 0.4rem;
+}
+
+.pagination {
+  margin-bottom: 2rem;
 }
 </style>

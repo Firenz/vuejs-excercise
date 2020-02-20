@@ -1,6 +1,6 @@
 <template>
   <footer :class="$style.footer">
-    Developed with Vue by
+    Developed with Vue + Vuetify by
     <a href="mailto:alicia.guardenoalbertos@gmail.com">Alicia G.</a>
   </footer>
 </template>
@@ -16,13 +16,13 @@ export default Vue.extend({
 .footer {
   text-align: center;
   font-size: 1.2rem;
-  background-color: aquamarine;
-  color: white;
+  background-color: #0097ac;
+  color: #e9fdfb;
   padding: 1rem;
 }
 
 .footer > a {
   text-decoration: none;
-  color:blanchedalmond;
+  color:#f9f871;
 }
 </style>

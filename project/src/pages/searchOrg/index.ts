@@ -1,2 +1,2 @@
-export { default as SearchOrgPage } from './SearchOrgPageContainer.vue';
+export { default as SearchOrgPageContainer } from './SearchOrgPageContainer.vue';
 

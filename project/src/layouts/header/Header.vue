@@ -1,7 +1,7 @@
 <template>
   <header :class="$style.header">
     <img src="../../img/logo_1.png" :class="$style.image" />
-    <h1 :class="$style.title">GitHub Organization Searcher by Vue</h1>
+    <h1 :class="$style.title">GitHub Organization Searcher</h1>
   </header>
 </template>
 
@@ -20,10 +20,9 @@ export default Vue.extend({
   align-items: flex-start;
   justify-content: center;
   text-align: center;
-  background-color: aquamarine;
-  color: white;
+  background-color:#0097ac;
+  color: #e9fdfb;
   padding: 1rem;
-  margin-bottom: 2.5rem;
 }
 .image {
   height: 5rem;
