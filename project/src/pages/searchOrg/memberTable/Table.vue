@@ -39,9 +39,12 @@
         </template>
       </v-data-table>
     </v-layout>
-    <div v-if="pages > 0" class="text-xs-center pt-2" :class="$style.pagination">
-      <v-pagination v-model="pagination.page" :length="pages"></v-pagination>
-    </div>
+    <v-pagination
+      v-if="pages > 0"
+      v-model="pagination.page"
+      :length="pages"
+      :class="$style.pagination"
+    />
   </v-card>
 </template>
 
