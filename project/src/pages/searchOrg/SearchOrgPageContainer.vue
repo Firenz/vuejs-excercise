@@ -1,6 +1,7 @@
 <template>
   <search-org-page
     :search-term="searchTerm"
+    :is-loading="isLoading"
     :on-update-search-term="onUpdateSearchTerm"
     :members="members"
   />
@@ -18,15 +19,23 @@ export default Vue.extend({
   data: () => {
     return {
       searchTerm: "" as string,
+      isLoading: false as boolean,
       members: [] as Member[]
     };
   },
   methods: {
     onUpdateSearchTerm(newSearchTerm: string) {
       this.searchTerm = newSearchTerm;
-      getAllMembers(this.searchTerm).then(members => {
-        this.members = members;
-      });
+      this.isLoading = true;
+      getAllMembers(this.searchTerm)
+        .then(members => {
+          this.members = members;
+          this.isLoading = false;
+        })
+        .catch(() => {
+          this.members = [];
+          this.isLoading = false;
+        });
     }
   }
 });

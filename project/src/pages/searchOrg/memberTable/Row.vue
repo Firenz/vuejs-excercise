@@ -35,6 +35,10 @@ td > * {
   font-size: 1.2rem;
 }
 
+.row:hover {
+  cursor: pointer;
+}
+
 .columnAvatar {
   width: 2rem;
   padding: 1rem;

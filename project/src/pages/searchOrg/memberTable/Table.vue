@@ -21,6 +21,7 @@
         :headers="headers"
         :items="members"
         :search="filterTerm"
+        :loading="isLoading"
         :pagination.sync="pagination"
         hide-actions
         class="elevation-1"
@@ -40,7 +41,7 @@
       </v-data-table>
     </v-layout>
     <v-pagination
-      v-if="pages > 0"
+      v-if="filteredMembers.length > pagination.rowsPerPage"
       v-model="pagination.page"
       :length="pages"
       :class="$style.pagination"
@@ -58,6 +59,7 @@ export default Vue.extend({
   name: "MemberTable",
   components: { MemberRow },
   props: {
+    isLoading: false as PropOptions<boolean>,
     members: {} as PropOptions<Member[]>
   },
   data: () => {

@@ -3,7 +3,7 @@
     <header-section />
     <main :class="$style.main">
       <search-bar :search-term="searchTerm" :on-update-search-term="onUpdateSearchTerm" />
-      <member-table :members="members" />
+      <member-table :members="members" :is-loading="isLoading"/>
     </main>
     <footer-section />
   </div>
@@ -22,6 +22,7 @@ export default Vue.extend({
   components: { HeaderSection, FooterSection, MemberTable, SearchBar },
   props: {
     searchTerm: {},
+    isLoading: {},
     members: {},
     onUpdateSearchTerm: {}
   } as SearchOrhProps
